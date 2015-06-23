@@ -49,7 +49,7 @@ def sf(order_number):
 			print "查询失败，请确认清单号以及快递公司准确性"
 			exit()
 
-	print "-" * 20
+	print "-" * 40
 	data = json.dumps(r.json(),ensure_ascii=False)
 	temp = data.decode("utf-8")
 	newdata = json.loads(data,encoding="utf-8")
@@ -58,7 +58,7 @@ def sf(order_number):
 	print "始发地:"+newdata[0]['origin']
 	print "目的地:"+newdata[0]['destination']
 	print "订单状态:"
-	print "=" * 20
+	print "=" * 40
 	print '\033[1;34m',"运单状态修改时间\t状态",'\033[0m'
 	for i in newdata[0]['routes']:
 			print '\033[1;32m' + i['scanDateTime'] + "\t" + re.sub('<[^>]+>','',i['remark']) + '\033[0m'
